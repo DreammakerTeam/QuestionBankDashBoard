@@ -15,7 +15,7 @@ export default class Header extends React.Component {
                 boxShadow: '0 0 10px gray',
                 position: 'fixed',
                 left: '0',
-                top: '0',
+                top: '0'
             },
             title: {
                 height: '4rem',
@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                 <Menu mode="horizontal" style={this.styles.menu}
                       defaultSelectedKeys={this.defaultSelectedKeys}
                       onSelect={this.props.onMenuItemSelect}>
-                    {this.props.menus.map((menu, index) => (
+                    {this.props.menus.map(menu => (
                         <Menu.Item key={menu.key}>{menu.name}</Menu.Item>
                     ))}
                 </Menu>
@@ -59,7 +59,7 @@ export default class Header extends React.Component {
         return {
             title: React.PropTypes.string.isRequired,
             menus: React.PropTypes.array.isRequired,
-            onMenuItemSelect: React.PropTypes.func,
+            onMenuItemSelect: React.PropTypes.func
         }
     }
 }
