@@ -1,0 +1,38 @@
+@import "customer"
+
+$login_card_height: 20rem
+$login_card_width: 18rem
+
+html, body
+    background: $light_background!important
+    font-family: $default_font_family!important
+
+#login-box
+    height: $login_card_height
+    width: $login_card_width
+    background: white
+    box-shadow: 0 0 .5rem black
+    position: absolute
+    top: 20%
+    left: 30%
+    margin-top: -($login_card_height / 2)
+    margin-left: -($login_card_width / 2)
+
+    .ant-input-wrapper:first-of-type
+        margin-top: 2.5rem
+
+    .ant-input-wrapper:nth-of-type(2)
+        margin-top: 1rem
+
+    #login-button
+        width: 100%
+        position: relative
+        top: 5.5rem
+
+    #register-button
+        width: 100%
+        position: relative
+        top: 5.5rem
+
+h3.ant-card-head-title
+    text-align: center
