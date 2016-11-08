@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import store from './stores'
 
+import Login from './components/Login'
 import App from './pages/App'
 import Users from './pages/Users'
 import Questions from './pages/Questions'
@@ -18,8 +19,9 @@ require('antd/dist/antd.css');
 ReactDOM.render(
   <Provider store={store}>
     <Router history={ browserHistory }>
-      <Route path="/" component={ App }>
-          <IndexRedirect to="users" />
+      <Route path="/">
+          <IndexRedirect to="login" />
+          <Route path="login" component={ Login } />
           <Route path="users" component={ Users } />
           <Route path="questions" component={ Questions } />
       </Route>
