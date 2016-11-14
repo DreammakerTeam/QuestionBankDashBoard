@@ -20,10 +20,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={ browserHistory }>
       <Route path="/">
-          <IndexRedirect to="login" />
-          <Route path="login" component={ Login } />
-          <Route path="users" component={ Users } />
-          <Route path="questions" component={ Questions } />
+        <IndexRedirect to="login" />
+        <Route path="login" component={ Login } />
+        // <Route path="users" component={ Users } />
+        // <Route path="questions" component={ Questions } />
       </Route>
     </Router>
   </Provider>,

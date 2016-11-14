@@ -2,7 +2,7 @@
 * @Author: QBoooogle
 * @Date:   2016-11-08 20:20:04
 * @Last Modified by:   QBoooogle
-* @Last Modified time: 2016-11-08 21:59:47
+* @Last Modified time: 2016-11-14 19:17:18
 */
 
 'use strict';
@@ -23,4 +23,17 @@ export function login(phone, password) {
      }
  }
 
+export function inputTyping(name, value) {
+    return {
+        type: INPUT_TYPING,
+        name: '',
+        value: ''
+    }
+}
 
+export function setUser(user) {
+    return {
+        type: SET_USER,
+        user: ''
+    }
+}

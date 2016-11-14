@@ -2,7 +2,7 @@
 * @Author: QBoooogle
 * @Date:   2016-11-08 20:20:32
 * @Last Modified by:   QBoooogle
-* @Last Modified time: 2016-11-08 21:52:27
+* @Last Modified time: 2016-11-14 18:32:12
 */
 
 
@@ -20,15 +20,18 @@ export default class LoginComponent extends React.Component {
 		let {username, password } = store.getState().inputTyping;
 		store.dispatch(login(username, password)).then(data=> {
 			loading();
-
+            console.log("进入");
 			if(data.error) {
 				message.error(data.error, 2);
+				console.log("error");
 			} else {
 				if (data.user.type !== 1) {
 					message.error("没有授权", 2);
+					console.log("!==1");
 				} else {
 					store.dispatch(setUser(data.user));
 					hashHistory.repalce('home');
+					console.log("yes");
 				}
 			}
 		}, ()=> {
@@ -38,6 +41,10 @@ export default class LoginComponent extends React.Component {
 
 	handleInputChanged(e) {
 		store.dispatch(inputTyping(e.target.name, e.target.value));
+	}
+
+	handleRegisterClicked(e) {
+
 	}
 
 	render() {
@@ -53,7 +60,7 @@ export default class LoginComponent extends React.Component {
                            onChange={this.handleInputChanged} placeholder="请输入密码"
                            onPressEnter={this.handleLoginClicked} />
                     <Button id="login-button" type="primary" onClick={this.handleLoginClicked}>登录</Button>
-                    <Button id="register-button" type="success" onClick={this.handleLoginClicked}>注册</Button>
+                    <Button id="register-button" type="success" onClick={this.handleRegisterClicked}>注册</Button>
                 </Card>
             </div>
         );
