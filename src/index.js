@@ -1,7 +1,8 @@
 import 'core-js/fn/object/assign'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import store from './stores'
+import {store} from './stores'
+//import store from './stores'
 
 import App from './pages/App'
 import Users from './pages/Users'
@@ -26,3 +27,5 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('app'));
+
+Array.prototype.isArray = true;
