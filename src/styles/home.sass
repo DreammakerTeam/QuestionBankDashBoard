@@ -1,0 +1,164 @@
+@import "customer"
+
+$introduce_container_width: 30rem
+$introduce_container_height: 20rem
+
+#content-container
+    position: absolute
+    left: $slide_bar_width
+    right: 0
+    top: 0
+    bottom: 0
+
+#introduce-container
+    width: $introduce_container_width
+    height: $introduce_container_height
+    position: absolute
+    top: 50%
+    left: 44%
+    margin-top: -($introduce_container_height / 2)
+    margin-left: -($introduce_container_width / 2)
+
+    .introduce-line
+        font-size: 2rem
+        text-align: center
+        margin-top: 15%
+        color: $dark_background
+
+        .introduce-num
+            color: $minor_foreground
+
+
+.search-box
+
+    input
+        background: transparent
+        border: none
+        text-align: right
+        padding-top: 0
+        padding-bottom: 0
+        font-size: 1.2rem
+        display: inline-block
+        width: 9rem
+        float: right
+
+    .ant-select
+        float: right
+
+    input:focus
+        outline: none
+        box-shadow: none
+
+    input::-webkit-input-placeholder
+        color: $primary_font_color
+
+.user-list-wrapper
+    overflow: scroll
+    height: 90%
+
+#user-list
+    font-size: 1rem
+
+    li
+        clear: right
+        padding: .5rem
+
+        &:hover
+            background: rgba(255, 255, 255, .8)
+
+        button
+            float: right
+
+        .delete-button
+            color: $minor_foreground
+
+        .dead-line
+            float: right
+            margin-right: 5rem
+        .pxjg
+            margin-left: 3rem
+
+.button-no-border
+    border: none!important
+
+.tool-bar
+    height: 10%
+    position: absolute
+    bottom: 0
+    width: 100%
+    font-size: 1.1rem
+
+    #buttons
+        position: absolute
+        right: 0
+        bottom: 5%
+
+        .page-counter
+            vertical-align: middle
+            font-size: .8rem
+            width: 3rem
+            text-align: center
+
+        button:first-of-type
+            margin-right: 1rem
+
+        button:last-of-type
+            margin-left: 1rem
+
+        @extend .search-box
+
+.input-group
+    .ant-col-8
+        text-align: center
+
+    .username-input
+        width: 75%
+        background: transparent
+        border-radius: 0
+        border: none
+        border-bottom: 1px solid $primary_font_color
+        text-align: center
+        margin-top: 1rem
+        font-size: 1rem
+        &:focus
+            box-shadow: none
+
+        &::-webkit-input-placeholder
+            color: $primary_font_color
+
+.bank-wrapper
+    .add-bank-input
+        background: transparent
+        border: none
+        box-shadow: none
+        font-size: .8rem
+        margin-top: -.2rem
+        text-align: right
+        &:focus
+            outline: none
+            box-shadow: none
+        &::-webkit-input-placeholder
+            color: $primary_font_color
+
+    .ant-menu
+        background: transparent
+    .ant-menu-item-selected
+        background: #eaf8fe
+    .ant-card
+        background: transparent
+        overflow: hidden
+        .ant-card-body
+            height: 73vh
+            overflow: scroll
+
+    .delete-bank-button
+        float: right
+        margin-top: .5rem
+        &:hover
+            color: red
+
+    .upload-bank-button
+        margin-top: 0
+        @extend .delete-bank-button
+        &:hover
+            color: $dark_background

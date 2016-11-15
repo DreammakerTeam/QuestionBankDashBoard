@@ -1,0 +1,167 @@
+@charset "UTF-8";
+html, body {
+  overflow: hidden;
+  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif; }
+
+.page {
+  height: 100%;
+  width: 100%; }
+
+.height-100 {
+  height: 100%; }
+
+.title-wrapper {
+  vertical-align: bottom;
+  position: relative;
+  padding-top: 0.5rem; }
+
+.content-wrapper {
+  position: absolute;
+  top: 58px;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.page-title {
+  font-size: 2rem;
+  display: inline-block; }
+
+.page-extra {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem; }
+
+#content-container {
+  position: absolute;
+  left: 15rem;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+#introduce-container {
+  width: 30rem;
+  height: 20rem;
+  position: absolute;
+  top: 50%;
+  left: 44%;
+  margin-top: -10rem;
+  margin-left: -15rem; }
+  #introduce-container .introduce-line {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 15%;
+    color: #4da2d7; }
+    #introduce-container .introduce-line .introduce-num {
+      color: #c5a59c; }
+
+.search-box input, .tool-bar #buttons input {
+  background: transparent;
+  border: none;
+  text-align: right;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1.2rem;
+  display: inline-block;
+  width: 9rem;
+  float: right; }
+.search-box .ant-select, .tool-bar #buttons .ant-select {
+  float: right; }
+.search-box input:focus, .tool-bar #buttons input:focus {
+  outline: none;
+  box-shadow: none; }
+.search-box input::-webkit-input-placeholder, .tool-bar #buttons input::-webkit-input-placeholder {
+  color: #666; }
+
+.user-list-wrapper {
+  overflow: scroll;
+  height: 90%; }
+
+#user-list {
+  font-size: 1rem; }
+  #user-list li {
+    clear: right;
+    padding: 0.5rem; }
+    #user-list li:hover {
+      background: rgba(255, 255, 255, 0.8); }
+    #user-list li button {
+      float: right; }
+    #user-list li .delete-button {
+      color: #c5a59c; }
+    #user-list li .dead-line {
+      float: right;
+      margin-right: 5rem; }
+    #user-list li .pxjg {
+      margin-left: 3rem; }
+
+.button-no-border {
+  border: none !important; }
+
+.tool-bar {
+  height: 10%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.1rem; }
+  .tool-bar #buttons {
+    position: absolute;
+    right: 0;
+    bottom: 5%; }
+    .tool-bar #buttons .page-counter {
+      vertical-align: middle;
+      font-size: 0.8rem;
+      width: 3rem;
+      text-align: center; }
+    .tool-bar #buttons button:first-of-type {
+      margin-right: 1rem; }
+    .tool-bar #buttons button:last-of-type {
+      margin-left: 1rem; }
+
+.input-group .ant-col-8 {
+  text-align: center; }
+.input-group .username-input {
+  width: 75%;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #666;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem; }
+  .input-group .username-input:focus {
+    box-shadow: none; }
+  .input-group .username-input::-webkit-input-placeholder {
+    color: #666; }
+
+.bank-wrapper .add-bank-input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 0.8rem;
+  margin-top: -0.2rem;
+  text-align: right; }
+  .bank-wrapper .add-bank-input:focus {
+    outline: none;
+    box-shadow: none; }
+  .bank-wrapper .add-bank-input::-webkit-input-placeholder {
+    color: #666; }
+.bank-wrapper .ant-menu {
+  background: transparent; }
+.bank-wrapper .ant-menu-item-selected {
+  background: #eaf8fe; }
+.bank-wrapper .ant-card {
+  background: transparent;
+  overflow: hidden; }
+  .bank-wrapper .ant-card .ant-card-body {
+    height: 73vh;
+    overflow: scroll; }
+.bank-wrapper .delete-bank-button, .bank-wrapper .upload-bank-button {
+  float: right;
+  margin-top: 0.5rem; }
+  .bank-wrapper .delete-bank-button:hover, .bank-wrapper .upload-bank-button:hover {
+    color: red; }
+.bank-wrapper .upload-bank-button {
+  margin-top: 0; }
+  .bank-wrapper .upload-bank-button:hover {
+    color: #4da2d7; }
+
+/*# sourceMappingURL=home.css.map */

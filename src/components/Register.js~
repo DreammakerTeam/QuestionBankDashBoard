@@ -1,0 +1,109 @@
+'use strict';
+
+import React from 'react'
+import { store } from '../stores/RootStore'
+import { connect } from 'react-redux'
+import { findDOMNode } from 'react-dom'
+
+import BankSelect from './BankSelect'
+import { addRegisteringUser, usernameChanging, removeRegisteringUser, fetchMulRegister } from '../actions/register';
+import { Row, Col, Input, Button, message } from 'antd'
+
+class RegisterComponent extends React.Component {
+    handleUsernameChange(username, index) {
+        if (username.length <= 11) {
+            store.dispatch(usernameChanging(username, index));
+        }
+
+        if (username.length === 11) {
+            store.dispatch(addRegisteringUser());
+        } else if (username.length === 0) {
+            store.dispatch(removeRegisteringUser(index));
+        }
+    }
+
+    handleConfirmClick() {
+        let usernames = [],
+            uniformPassword = findDOMNode(this.refs.passwordInput.refs.input).value,
+            pxjg = findDOMNode(this.refs.pxjgInput.refs.input).value,
+            { targetBigBankId, registeringUsers, targetSmallBankId } = this.props;
+
+        registeringUsers.forEach(username => {
+            if (username.length === 11) {
+                usernames.push(username);
+            }
+        });
+        if (uniformPassword.length < 6) {
+            message.error('请输入正确的通用密码!', 2);
+            return;
+        }
+        if (targetBigBankId === '' || targetSmallBankId === '') {
+            message.error('请选择模块!', 2);
+            return;
+        }
+        store.dispatch(fetchMulRegister(usernames, uniformPassword, pxjg, targetSmallBankId))
+            .then(function (data) {
+                if (data.error) {
+                    message.error(`${data.result.errorAt.toString()} 注册失败`, 2);
+                }
+            });
+    }
+
+    componentDidUpdate() {
+        findDOMNode(this.refs[`input-${this.props.registeringUsers.length - 1}`].refs.input).focus();
+    }
+
+    render() {
+        return (
+            <Row type="flex" justify="center" align="top" className="height-100">
+                <Col span={22} className="height-100">
+                    <div className="title-wrapper">
+                        <h1 className="page-title">批量注册</h1>
+                        <span className="page-extra search-box">
+                            <Input type="text" placeholder="通用密码"  ref="passwordInput" />
+                            <Input type="text" placeholder="培训机构"  ref="pxjgInput" />
+                            <BankSelect />
+                        </span>
+                        <hr/>
+                    </div>
+                    <div className="content-wrapper">
+                        <div className="user-list-wrapper">
+                            <div className="input-group">
+                                <Row>
+                                    {this.props.registeringUsers.map((username, index) => {
+                                        return <Col span={8} key={index}>
+                                                <Input className="username-input"
+                                                       placeholder="请输入手机号码"
+                                                       ref={`input-${index}`}
+                                                       onChange={e => this.handleUsernameChange(e.target.value, index)}
+                                                       value={username}/>
+                                            </Col>
+                                    })}
+                                </Row>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="tool-bar">
+                        <div id="buttons">
+                            <Button type="ghost" className="button-no-border"
+                                    onClick={() => this.handleConfirmClick()}>确定</Button>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+        )
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        registeringUsers: state.registeringUsers,
+        uniformPassword: state.uniformPassword,
+        bigBanks: state.bigBanks,
+        smallBanks: state.smallBanks,
+        targetBigBankId: state.targetBigBankId,
+        targetSmallBankId: state.targetSmallBankId
+    }
+}
+
+export default connect(mapStateToProps)(RegisterComponent);
